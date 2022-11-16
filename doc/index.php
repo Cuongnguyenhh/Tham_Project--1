@@ -1,4 +1,8 @@
 <?php  
+require '../config/database.php';
+condb();
+require '../config/controller/product.php';
+getAll_pro();
 if(isset($_GET['act'])){
     $act =$_GET['act'];
     switch($_GET['act']){
@@ -13,8 +17,10 @@ if(isset($_GET['act'])){
             require_once './navbar.php';
             require_once './Customer_control.php';
         case 'product':
+            $kq = getAll_pro();
             require_once './navbar.php';
             require_once './table-data-product.php';
+            break;
         case 'order':
             require_once './navbar.php';
             require_once './table-data-oder.php';
