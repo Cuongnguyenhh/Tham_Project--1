@@ -54,8 +54,8 @@ Resources
 * Documentation: https://docs.webspellchecker.net/
 * YouTube video “How to Configure CKEditor 4 and SpellCheckAsYouType Plugin”: https://youtu.be/D0ahmVjYBq8
 * Term of Service: https://webspellchecker.com/terms-of-service/
-* CKEditor’s How-Tos for SCAYT: https://ckeditor.com/docs/ckeditor4/latest/guide/dev_howtos_scayt.html
-* CKEditor’s example of SCAYT: https://ckeditor.com/docs/ckeditor4/latest/examples/spellchecker.html
+* CKEditor’s How-Tos for SCAYT: https://ckeditor.com/docs/ckeditor4/latest/guide/dev_howtos_scayt.php
+* CKEditor’s example of SCAYT: https://ckeditor.com/docs/ckeditor4/latest/examples/spellchecker.php
 
 Technical Support or Questions
 -------
@@ -74,7 +74,7 @@ Please use the [SCAYT plugin for CKEditor 4 GitHub issue page](https://github.co
 License
 -------
 
-This plugin is licensed under the terms of any of the following licenses at your choice: [GPL](http://www.gnu.org/licenses/gpl.html), [LGPL](http://www.gnu.org/licenses/lgpl.html) and [MPL](http://www.mozilla.org/MPL/MPL-1.1.html).
+This plugin is licensed under the terms of any of the following licenses at your choice: [GPL](http://www.gnu.org/licenses/gpl.php), [LGPL](http://www.gnu.org/licenses/lgpl.php) and [MPL](http://www.mozilla.org/MPL/MPL-1.1.php).
 
 See LICENSE.md for more information.
 

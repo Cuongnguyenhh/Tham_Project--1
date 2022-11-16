@@ -18,10 +18,10 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 </head>
 <body>
 	<h1 class="samples">
-		<a href="../../../samples/old/index.html">CKEditor Samples</a> &raquo; Producing HTML Compliant Output
+		<a href="../../../samples/old/index.php">CKEditor Samples</a> &raquo; Producing HTML Compliant Output
 	</h1>
 	<div class="warning deprecated">
-		This sample is not maintained anymore. Check out the <a href="https://ckeditor.com/docs/ckeditor4/latest/examples/index.html">brand new samples in CKEditor Examples</a>.
+		This sample is not maintained anymore. Check out the <a href="https://ckeditor.com/docs/ckeditor4/latest/examples/index.php">brand new samples in CKEditor Examples</a>.
 	</div>
 	<div class="description">
 		<p>
@@ -81,7 +81,7 @@ CKEDITOR.replace( '<em>textarea_id</em>', {
 					 * will also take care of transforming styles to attributes
 					 * (currently only for img - see transformation rules defined below).
 					 *
-					 * Read more: https://ckeditor.com/docs/ckeditor4/latest/guide/dev_advanced_content_filter.html
+					 * Read more: https://ckeditor.com/docs/ckeditor4/latest/guide/dev_advanced_content_filter.php
 					 */
 					allowedContent:
 						'h1 h2 h3 p pre[align]; ' +
@@ -156,7 +156,7 @@ CKEDITOR.replace( '<em>textarea_id</em>', {
 				function configureTransformations( evt ) {
 					var editor = evt.editor;
 
-					editor.dataProcessor.htmlFilter.addRules( {
+					editor.dataProcessor.phpFilter.addRules( {
 						attributes: {
 							style: function( value, element ) {
 								// Return #RGB for background and border colors

@@ -25,7 +25,8 @@ if(isset($_GET['act'])){
             
     }
 }else{
-   $_GET['act'] = "main";
+   require_once './navbar.php';
+   require_once './table-data-table.php';
 }
 
 ?>

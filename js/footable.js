@@ -1116,11 +1116,11 @@
 		 */
 		collapse: function(){
 			if (!this.created) return;
-			this.$detail.children('th').html(this.column.title);
+			this.$detail.children('th').php(this.column.title);
 			this.$el.clone()
 				.attr('id', this.$el.attr('id') ? this.$el.attr('id') + '-detail' : undefined)
 				.css('display', 'table-cell')
-				.html('')
+				.php('')
 				.append(this.$el.contents().detach())
 				.replaceAll(this.$detail.children('td').first());
 
@@ -1340,7 +1340,7 @@
 			 * @default null
 			 */
 			this.title = F.is.string(definition.title) ? definition.title : null;
-			if (!this.virtual && this.title == null && F.is.jq(this.$el)) this.title = this.$el.html();
+			if (!this.virtual && this.title == null && F.is.jq(this.$el)) this.title = this.$el.php();
 			if (this.title == null) this.title = 'Column '+(definition.index+1);
 			/**
 			 * The styles to apply to all cells in this column.
@@ -1364,7 +1364,7 @@
 		 * @this FooTable.Column
 		 */
 		$create: function(){
-			(this.$el = !this.virtual && F.is.jq(this.$el) ? this.$el : $('<th/>')).html(this.title).addClass(this.classes.join(' ')).css(this.style);
+			(this.$el = !this.virtual && F.is.jq(this.$el) ? this.$el : $('<th/>')).php(this.title).addClass(this.classes.join(' ')).css(this.style);
 		},
 		/**
 		 * This is supplied either the cell value or jQuery object to parse. Any value can be returned from this method and will be provided to the {@link FooTable.Column#format} function
@@ -1378,7 +1378,7 @@
 		parser: function(valueOrElement){
 			if (F.is.element(valueOrElement) || F.is.jq(valueOrElement)){ // use jQuery to get the value
 				var data = $(valueOrElement).data('value');
-				return F.is.defined(data) ? data : $(valueOrElement).html();
+				return F.is.defined(data) ? data : $(valueOrElement).php();
 			}
 			if (F.is.defined(valueOrElement) && valueOrElement != null) return valueOrElement+''; // use the native toString of the value
 			return null; // otherwise we have no value so return null
@@ -2356,7 +2356,7 @@
 			if (F.is.element(valueOrElement) || F.is.jq(valueOrElement)){ // use jQuery to get the value
 				var $el = $(valueOrElement), data = $el.data('value'); // .data() will automatically convert a JSON string to an array
 				if (F.is.array(data)) return data;
-				data = $el.html();
+				data = $el.php();
 				try {
 					data = JSON.parse(data);
 				} catch(err) {
@@ -2496,26 +2496,26 @@
 
 (function($, F){
 
-	F.HTMLColumn = F.Column.extend(/** @lends FooTable.HTMLColumn */{
+	F.phpColumn = F.Column.extend(/** @lends FooTable.phpColumn */{
 		/**
 		 * The HTML column class is used to handle any raw HTML columns.
 		 * @constructs
 		 * @extends FooTable.Column
 		 * @param {FooTable.Table} instance -  The parent {@link FooTable.Table} this column belongs to.
 		 * @param {object} definition - An object containing all the properties to set for the column.
-		 * @returns {FooTable.HTMLColumn}
+		 * @returns {FooTable.phpColumn}
 		 */
 		construct: function(instance, definition){
 			this._super(instance, definition, 'html');
 		},
 		/**
-		 * This is supplied either the cell value or jQuery object to parse. Any value can be returned from this method and will be provided to the {@link FooTable.HTMLColumn#format} function
+		 * This is supplied either the cell value or jQuery object to parse. Any value can be returned from this method and will be provided to the {@link FooTable.phpColumn#format} function
 		 * to generate the cell contents.
 		 * @instance
 		 * @protected
 		 * @param {(*|jQuery)} valueOrElement - The value or jQuery cell object.
 		 * @returns {(jQuery|null)}
-		 * @this FooTable.HTMLColumn
+		 * @this FooTable.phpColumn
 		 */
 		parser: function(valueOrElement){
 			if (F.is.string(valueOrElement)) valueOrElement = $($.trim(valueOrElement));
@@ -2532,7 +2532,7 @@
 		}
 	});
 
-	F.columns.register('html', F.HTMLColumn);
+	F.columns.register('html', F.phpColumn);
 
 })(jQuery, FooTable);
 (function($, F){
@@ -2624,7 +2624,7 @@
 			if (F.is.element(valueOrElement) || F.is.jq(valueOrElement)){ // use jQuery to get the value
 				var $el = $(valueOrElement), data = $el.data('value'); // .data() will automatically convert a JSON string to an object
 				if (F.is.object(data)) return data;
-				data = $el.html();
+				data = $el.php();
 				try {
 					data = JSON.parse(data);
 				} catch(err) {
@@ -5170,7 +5170,7 @@
 })(FooTable);
 (function($, F){
 
-	F.HTMLColumn.extend('__sorting_define__', function(definition){
+	F.phpColumn.extend('__sorting_define__', function(definition){
 		this._super(definition);
 		this.sortUse = F.is.string(definition.sortUse) && $.inArray(definition.sortUse, ['html','text']) !== -1 ? definition.sortUse : 'html';
 	});
@@ -5179,9 +5179,9 @@
 	 * This is supplied either the cell value or jQuery object to parse. A value must be returned from this method and will be used during sorting operations.
 	 * @param {(*|jQuery)} valueOrElement - The value or jQuery cell object.
 	 * @returns {*}
-	 * @this FooTable.HTMLColumn
+	 * @this FooTable.phpColumn
 	 */
-	F.HTMLColumn.prototype.sortValue = function(valueOrElement){
+	F.phpColumn.prototype.sortValue = function(valueOrElement){
 		// if we have an element or a jQuery object use jQuery to get the data value or pass it off to the parser
 		if (F.is.element(valueOrElement) || F.is.jq(valueOrElement)){
 			var data = $(valueOrElement).data('sortValue');
@@ -5784,7 +5784,7 @@
 						.append($('<a/>', {
 							'class': 'footable-page-link',
 							href: '#'
-						}).data('page', attr).html(html));
+						}).data('page', attr).php(html));
 				};
 			self.$pagination.empty();
 			if (multiple) {
@@ -6569,7 +6569,7 @@
 		 * @this FooTable.Column
 		 */
 		$create: function(){
-			(this.$el = !this.virtual && F.is.jq(this.$el) ? this.$el : $('<th/>', {'class': 'footable-editing'})).html(this.title);
+			(this.$el = !this.virtual && F.is.jq(this.$el) ? this.$el : $('<th/>', {'class': 'footable-editing'})).php(this.title);
 		},
 		/**
 		 * This is supplied either the cell value or jQuery object to parse. Any value can be returned from this method and
@@ -6604,7 +6604,7 @@
 					$cell.insertAfter(row.$el.children().eq(this.index-1));
 				}
 			}
-			return new F.Cell(this.ft, row, this, $cell || $cell.html());
+			return new F.Cell(this.ft, row, this, $cell || $cell.php());
 		}
 	});
 

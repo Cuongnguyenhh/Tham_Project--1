@@ -31,7 +31,7 @@ function InsertHTML() {
 	if ( editor.mode == 'wysiwyg' )
 	{
 		// Insert HTML code.
-		// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-insertHtml
+		// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.php#method-insertHtml
 		editor.insertHtml( value );
 	}
 	else
@@ -47,7 +47,7 @@ function InsertText() {
 	if ( editor.mode == 'wysiwyg' )
 	{
 		// Insert as plain text.
-		// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-insertText
+		// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.php#method-insertText
 		editor.insertText( value );
 	}
 	else
@@ -60,7 +60,7 @@ function SetContents() {
 	var value = document.getElementById( 'htmlArea' ).value;
 
 	// Set editor contents (replace current contents).
-	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-setData
+	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.php#method-setData
 	editor.setData( value );
 }
 
@@ -69,7 +69,7 @@ function GetContents() {
 	var editor = CKEDITOR.instances.editor1;
 
 	// Get editor contents
-	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-getData
+	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.php#method-getData
 	alert( editor.getData() );
 }
 
@@ -81,7 +81,7 @@ function ExecuteCommand( commandName ) {
 	if ( editor.mode == 'wysiwyg' )
 	{
 		// Execute the command.
-		// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-execCommand
+		// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.php#method-execCommand
 		editor.execCommand( commandName );
 	}
 	else
@@ -93,7 +93,7 @@ function CheckDirty() {
 	var editor = CKEDITOR.instances.editor1;
 	// Checks whether the current editor contents present changes when compared
 	// to the contents loaded into the editor at startup
-	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-checkDirty
+	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.php#method-checkDirty
 	alert( editor.checkDirty() );
 }
 
@@ -101,7 +101,7 @@ function ResetDirty() {
 	// Get the editor instance that we want to interact with.
 	var editor = CKEDITOR.instances.editor1;
 	// Resets the "dirty state" of the editor (see CheckDirty())
-	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-resetDirty
+	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.php#method-resetDirty
 	editor.resetDirty();
 	alert( 'The "IsDirty" status has been reset' );
 }
@@ -123,15 +123,15 @@ function onBlur() {
 </head>
 <body>
 	<h1 class="samples">
-		<a href="index.html">CKEditor Samples</a> &raquo; Using CKEditor JavaScript API
+		<a href="index.php">CKEditor Samples</a> &raquo; Using CKEditor JavaScript API
 	</h1>
 	<div class="warning deprecated">
-		This sample is not maintained anymore. Check out its <a href="https://ckeditor.com/docs/ckeditor4/latest/examples/api.html">brand new version in CKEditor Examples</a>.
+		This sample is not maintained anymore. Check out its <a href="https://ckeditor.com/docs/ckeditor4/latest/examples/api.php">brand new version in CKEditor Examples</a>.
 	</div>
 	<div class="description">
 	<p>
 		This sample shows how to use the
-		<a class="samples" href="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html">CKEditor JavaScript API</a>
+		<a class="samples" href="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.php">CKEditor JavaScript API</a>
 		to interact with the editor at runtime.
 	</p>
 	<p>
@@ -183,7 +183,7 @@ function onBlur() {
 			<input onclick="SetContents();" type="button" value="Set Editor Contents">
 			<input onclick="GetContents();" type="button" value="Get Editor Contents (HTML)">
 			<br>
-			<textarea cols="100" id="htmlArea" rows="3">&lt;h2&gt;Test&lt;/h2&gt;&lt;p&gt;This is some &lt;a href="/Test1.html"&gt;sample&lt;/a&gt; HTML code.&lt;/p&gt;</textarea>
+			<textarea cols="100" id="htmlArea" rows="3">&lt;h2&gt;Test&lt;/h2&gt;&lt;p&gt;This is some &lt;a href="/Test1.php"&gt;sample&lt;/a&gt; HTML code.&lt;/p&gt;</textarea>
 			<br>
 			<br>
 			<input onclick="InsertText();" type="button" value="Insert Text">
