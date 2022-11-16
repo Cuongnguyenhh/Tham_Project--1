@@ -26,7 +26,6 @@
   <header class="app-header">
     <!-- Sidebar toggle button-->
     <!-- Navbar Right Menu-->
-    <ul class="app-nav">
 
 
       <!-- User Menu-->

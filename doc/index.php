@@ -4,11 +4,10 @@ if(isset($_GET['act'])){
     switch($_GET['act']){
         case 'main':
             require_once './mainControll.php';
-        case 'pos':
-            require_once './navbar.php';
-            require_once './phan-mem-ban-hang.php';
+        // case 'pos':
+        //     require_once './phan-mem-ban-hang.php';
         case 'ql_nhanvien':
-            require_once './navbar.php';
+            // require_once './navbar.php';
             require_once './table-data-table.php';
         case 'ql_khachhang':
             require_once './navbar.php';
@@ -19,13 +18,14 @@ if(isset($_GET['act'])){
         case 'order':
             require_once './navbar.php';
             require_once './table-data-oder.php';
-        case 'report':
+        case 'pos':
             require_once './phan-mem-ban-hang.php';
+        case 'report':
+            require_once './quan-ly-bao-cao.php';
             
     }
 }else{
-    require_once './mainControll.php';
-    require_once './navbar.php';
+   $_GET['act'] = "main";
 }
 
 ?>
