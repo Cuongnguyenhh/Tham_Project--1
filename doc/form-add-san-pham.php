@@ -1,3 +1,11 @@
+<?php
+require '../config/database.php';
+condb();
+ require '../config/controller/Catelory.php';
+ $kq_cate = getAll_cate();
+ $kq_supp = getAll_supp();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -200,26 +208,28 @@
               <div class="form-group col-md-3">
                 <label for="exampleSelect1" class="control-label">Danh mục</label>
                 <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn danh mục --</option>
-                  <option>Bàn ăn</option>
-                  <option>Bàn thông minh</option>
-                  <option>Tủ</option>
-                  <option>Ghế gỗ</option>
-                  <option>Ghế sắt</option>
-                  <option>Giường người lớn</option>
-                  <option>Giường trẻ em</option>
-                  <option>Bàn trang điểm</option>
-                  <option>Giá đỡ</option>
+                  <?php
+                 echo '<option>--Chọn Danh mục--</option>';
+                   foreach ($kq_cate as $cate){
+                   echo  '<option>'.$cate['prd_group_name'].' </option>';
+                   };
+                 ;
+                  ?>
+    
+                
                 </select>
               </div>
               <div class="form-group col-md-3 ">
                 <label for="exampleSelect1" class="control-label">Nhà cung cấp</label>
                 <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn nhà cung cấp --</option>
-                  <option>Phong vũ</option>
-                  <option>Thế giới di động</option>
-                  <option>FPT</option>
-                  <option>Võ Trường</option>
+                <?php
+                 echo '<option>--Chọn Nhà Cung Cấp --</option>';
+                   foreach ($kq_supp as $supp){
+                   echo  '<option>'.$supp['supplier_name'].' </option>';
+                   };
+                 ;
+                  ?>
+       
                 </select>
               </div>
               <div class="form-group col-md-3">
@@ -277,6 +287,17 @@
               <label class="control-label">Nhập tên chức vụ mới</label>
               <input class="form-control" type="text" required>
             </div>
+            <div class="form-group col-md-12">
+              <label class="control-label">Danh mục sản phẩm hiện đang có</label>
+                <?php
+                  foreach ($kq_supp as $supp){
+                    echo '   <ul style="padding-left: 20px;">
+                    <li>'.$supp['supplier_name'].'</li>
+                  </ul>';
+                  }
+                ?>
+            </div>
+          </div>
           </div>
           <BR>
           <button class="btn btn-save" type="button">Lưu lại</button>
@@ -315,17 +336,13 @@ MODAL
             </div>
             <div class="form-group col-md-12">
               <label class="control-label">Danh mục sản phẩm hiện đang có</label>
-              <ul style="padding-left: 20px;">
-                <li>Bàn ăn</li>
-              <li>Bàn thông minh</li>
-              <li>Tủ</li>
-              <li>Ghế gỗ</li>
-              <li>Ghế sắt</li>
-              <li>Giường người lớn</li>
-              <li>Giường trẻ em</li>
-              <li>Bàn trang điểm</li>
-              <li>Giá đỡ</li>
-              </ul>
+                <?php
+                  foreach ($kq_cate as $cate){
+                    echo '   <ul style="padding-left: 20px;">
+                    <li>'.$cate['prd_group_name'].'</li>
+                  </ul>';
+                  }
+                ?>
             </div>
           </div>
           <BR>

@@ -2,6 +2,8 @@
 require '../config/database.php';
 condb();
 require '../config/controller/product.php';
+require '../config/controller/Catelory.php';
+getAll_cate();
 getAll_pro();
 if(isset($_GET['act'])){
     $act =$_GET['act'];
@@ -18,6 +20,7 @@ if(isset($_GET['act'])){
             require_once './Customer_control.php';
         case 'product':
             $kq = getAll_pro();
+            $kq_cate = getAll_cate();
             require_once './navbar.php';
             require_once './table-data-product.php';
             break;
@@ -32,7 +35,7 @@ if(isset($_GET['act'])){
     }
 }else{
    require_once './navbar.php';
-   require_once './table-data-table.php';
+   require_once './mainControll.php';
 }
 
 ?>
