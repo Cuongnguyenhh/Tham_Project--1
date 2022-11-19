@@ -7,4 +7,10 @@ function getAll_pro(){
     $kq = $stmt -> fetchAll();
     return $kq;
 }
-?>
+function getOne_pro($get_id){
+    $conn = condb();
+    $stmt = $conn->prepare("SELECT prd_name, prd_price, id_prd_group, id_pro_manufacture,prd_sell_price FROM cms_product WHERE ID='$get_id'");
+    $stmt->execute();
+    
+   
+}

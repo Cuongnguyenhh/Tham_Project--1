@@ -1,55 +1,11 @@
 <?php
-
-require '../config/database.php';
-condb();
- require '../config/controller/Catelory.php';
- $kq_cate = getAll_cate();
- $kq_supp = getAll_supp();
- 
-
-?>
-<!-- Add product controll -->
-
-<?php
-$conn = condb();
-
-  if(isset($_POST['themsp'])){
-    $today = date("Y-m-d");
-    $post_prd_name = $_POST['prd_name'];
-    $post_quaility = $_POST['quaility'];
-    $post_cate = $_POST['cate'];
-    $post_supp = $_POST['supp'];
-    $post_priceSell = $_POST['priceSell'];
-    $post_price = $_POST['price'];
-    // try {
-    //   $sql = "INSERT INTO cms_product (prd_name,quaility , id_prd_group, id_pro_manufacture,  prd_sell_price)
-    //   VALUES ('$post_prd_name' , '$post_quaility' , '$post_cate', '$post_supp'  )";
-    //   // use exec() because no results are returned
-    //   $conn->exec($sql);
-    //   echo "New record created successfully";
-    // } catch(PDOException $e) {
-    //   echo $sql . "<br>" . $e->getMessage();
-    // }
-  
-    try{
-    $sql = "INSERT INTO cms_product (prd_name, quaility, id_prd_group, id_pro_manufacture, prd_sell_price, prd_price )
-  VALUES ('$post_prd_name', '$post_quaility', '$post_cate', '$post_supp', '$post_priceSell', '$post_price')";
-  // use exec() because no results are returned
-  $conn->exec($sql);
-  echo "New record created successfully";
-} catch(PDOException $e) {
-  echo $sql . "<br>" . $e->getMessage();
-}
-  }
-  
- 
-
+  $get_id = $_GET['ID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Thêm sản phẩm | Quản trị Admin</title>
+  <title>Sửa sản phẩm | Quản trị Admin</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -204,13 +160,13 @@ $conn = condb();
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item">Danh sách sản phẩm</li>
-        <li class="breadcrumb-item"><a href="#">Thêm sản phẩm</a></li>
+        <li class="breadcrumb-item"><a href="#">Chỉnh sửa sản phẩm</a></li><?php echo $get_id ?>
       </ul>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-          <h3 class="tile-title">Tạo mới sản phẩm</h3>
+          <h3 class="tile-title">Chỉnh sửa sản phẩm</h3>
           <div class="tile-body">
             <div class="row element-button">
               <div class="col-sm-2">
@@ -229,7 +185,7 @@ $conn = condb();
             <form action="./form-add-san-pham.php" class="row" enctype="multipart/form-data"  method="POST">
               <div class="form-group col-md-3">
                 <label class="control-label">Mã sản phẩm </label>
-                <input name="ID_prd" class="form-control" type="number" placeholder="Nếu bỏ trống sẽ tự tạo mã sản phẩm">
+                <input name="ID_prd" class="form-control" type="number" value="<?php echo $get_id ?>">
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Tên sản phẩm</label>
@@ -377,7 +333,10 @@ MODAL
           <div class="row">
             <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
-                <h5>Thêm mới danh mục </h5>
+                <h5>Thêm mới danh mục </h5> <?php
+                echo $post_id;
+                echo "sad"
+                ?>
               </span>
             </div>
             <div class="form-group col-md-12">

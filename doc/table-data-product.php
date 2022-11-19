@@ -100,6 +100,7 @@
                                 
                                 <?php
                                 foreach($kq as $pro){
+                                  
                                   if(($pro['quaility'])> 0){
                                     $pro['prd_status'] = 1;
                                   }else{
@@ -127,16 +128,23 @@
                                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
                                             onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> 
                                         </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+                                         
+                                        <a href="./formeditPro.php?ID='.$pro['ID'].'" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
+                                        ><i class="fas fa-edit"></i></a>
+                                       
                                        
                                     </td>
                                 </tr>
                                   ';
                                   
                                 }
+                                
+                                
+                                
+                               
                                 ?>
-                                  
+                            <a href="./formeditPro.php?act='.$pro['ID'].'" name="edit" value="'.$pro['ID'].'" class="btn btn-primary btn-sm edit" type="button"  id="show-emp" 
+                                                 ><i class="fas fa-edit"></i></a>
                             </tbody>
                         </table>
                     </div>
@@ -164,7 +172,7 @@ data-keyboard="false">
       <div class="row">
         <div class="form-group col-md-6">
             <label class="control-label">Mã sản phẩm </label>
-            <input class="form-control" type="number" value="71309005">
+            <input class="form-control" type="number" value="">
           </div>
         <div class="form-group col-md-6">
             <label class="control-label">Tên sản phẩm</label>
