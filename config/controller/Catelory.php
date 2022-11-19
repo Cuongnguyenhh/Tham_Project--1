@@ -1,7 +1,7 @@
 <?php
 function getAll_cate(){
     $conn = condb();
-    $stmt = $conn->prepare("SELECT ID, prd_group_name, level, created FROM cms_products_group");
+    $stmt = $conn->prepare("SELECT ID, prd_group_name, created FROM cms_products_group");
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $kq_cate = $stmt -> fetchAll();

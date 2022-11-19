@@ -155,6 +155,7 @@ condb();
     </ul>
   </header>
   <!-- Sidebar menu-->
+  
  
   <main class="app-content">
     <div class="app-title">
@@ -182,7 +183,7 @@ condb();
                     class="fas fa-folder-plus"></i> Thêm tình trạng</a>
               </div>
             </div>
-            <form class="row">
+            <form class="row" enctype="multipart/form-data"  method="POST">
               <div class="form-group col-md-3">
                 <label class="control-label">Mã sản phẩm </label>
                 <input class="form-control" type="number" placeholder="">
@@ -191,7 +192,7 @@ condb();
                 <label class="control-label">Tên sản phẩm</label>
                 <input class="form-control" type="text">
               </div>
-
+     
 
               <div class="form-group  col-md-3">
                 <label class="control-label">Số lượng</label>
@@ -241,7 +242,9 @@ condb();
                 <input class="form-control" type="text">
               </div>
               <div class="form-group col-md-12">
+                <!-- Upload hanh sp -->
                 <label class="control-label">Ảnh sản phẩm</label>
+            
                 <div id="myfileupload">
                   <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);" />
                 </div>
@@ -253,6 +256,7 @@ condb();
                   <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn ảnh</a>
                   <p style="clear:both"></p>
                 </div>
+                <!-- Load anh  -->
 
               </div>
               <div class="form-group col-md-12">
